@@ -47,7 +47,8 @@ First, make a folder to hold the code: C:\builds\
 Launch "Git Bash" from the start menu and issue these commands:
 ````
 $ cd /c/builds
-$ git clone https://github.com/YourAccount/YourRepository.git yourApp (note: you'll be prompted for git login info)
+$ git clone https://github.com/YourAccount/YourRepository.git yourApp 
+  (note: you'll be prompted for git login info)
 ````
 
 If you use submodules in your application, issue these commands too:
