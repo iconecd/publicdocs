@@ -14,14 +14,19 @@ In order to manage Node, we aren't using the default available download from nod
 https://github.com/marcelklehr/nodist/zipball/master
 Unzip the folder to C:\ and rename it to "nodist." The goal here is to get the Node executable at the path
 ````
-C:\nodist\bin\node.exe````
+C:\nodist\bin\node.exe
+````
+
 Once it's there, open a command prompt (using Run As Administrator) and issue these two commands:
 ````
 C:\> setx /M PATH "C:\nodist\bin;%PATH%"
-C:\> setx /M NODIST_PREFIX "C:\nodist"````
+C:\> setx /M NODIST_PREFIX "C:\nodist"
+````
+
 Close the command prompt and open a new one -- otherwise, the settings you just created may not be reflected. Run this command to download the actual Node executable.
 ````
-C:\> nodist selfupdate````
+C:\> nodist selfupdate
+````
 
 Some internal stuff in Node requires Python 2.6 or 2.7 -- Python 3+ isn't compatible with Node as of today. Download and install it from
 https://www.python.org/downloads/
@@ -44,6 +49,7 @@ Launch "Git Bash" from the start menu and issue these commands:
 $ cd /c/builds
 $ git clone https://github.com/YourAccount/YourRepository.git yourApp (note: you'll be prompted for git login info)
 ````
+
 If you use submodules in your application, issue these commands too:
 ````
 $ cd yourApp/
@@ -74,7 +80,8 @@ This is only for a Node.js app server, not for a local development VM. If you're
 
 Open a command prompt and issue this command: 
 ````
-C:\> nssm install yourNodeService````
+C:\> nssm install yourNodeService
+````
 A GUI will pop up. Fill out the screens as follows:
 
 - Application tab:
@@ -111,7 +118,8 @@ Repeat this process for every Node application you use, substituting the proper 
 # Wait, I'm setting up a local VM!
 Then ignore the whole services section above, as instructed. Instead, open a command prompt and issue this command:
 ````
-C:\> npm install -g nodemon````
+C:\> npm install -g nodemon
+````
 Simply use nodemon at the command prompt whenever you're developing, instead of node. It will watch your files for changes, and restart when it sees changes.
 
 # Start the apps!
@@ -119,11 +127,13 @@ If you've done everything correctly, you should be able to verify that the apps 
 
 Sometimes this crashes on a cryptic error like "ENOTFOUND" or "ENOADDR" -- should that happen, it's because the hostnames specified in the apps' config files aren't managed by DNS and pointing to the machine you've set up. If you need the DNS entries, that's up to you to figure out. If you don't, just open your hosts file and add a line like
 ````
-127.0.0.1  yourapp.yourdomain.tld````
+127.0.0.1  yourapp.yourdomain.tld
+````
 
 If you've been setting up a server, start each Node application service through the services console or by issuing  commands such as these at a prompt:
 ````
-C:\> net start yourapp````
+C:\> net start yourapp
+````
 
 # Good to go!
 Congrats, you're all set up. If this was a server, you're done! Good job! Verify that it's running and available by pointing your local hosts file at it and submitting a request through some kind of API testing tool, like Postman, a Chrome extension.
@@ -134,7 +144,8 @@ If this is a local development VM, install Chrome and Postman and Sublime Text o
 .js             javascript
 .json           javascript object notation
 .md             markdown
-.gitignore      ignore file for git repositories````
+.gitignore      ignore file for git repositories
+````
 
 You'll also want a different user than Administrator, since our Node apps never run under the administrator profile from any server, and it's just good policy. Create a separate user with Administrator privileges, since you'll need them as a developer, and use that account to develop under. Nobody else needs to know your local VM username or password, nor should they. Just use it and stay safe.
 
